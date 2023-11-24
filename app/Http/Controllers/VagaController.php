@@ -16,7 +16,7 @@ class VagaController extends Controller
         return VagaResource::collection(Vaga::all());
     }
 
-    public function store(Request $request)
+    public function store(VagaRequest $request)
     {
         $vaga = Vaga::create($request->all());
         return new VagaResource($vaga);
@@ -27,7 +27,7 @@ class VagaController extends Controller
         return new VagaResource(Vaga::findOrFail($id));
     }
 
-    public function update(Request $request, string $id)
+    public function update(VagaRequest $request, string $id)
     {
         $vaga = Vaga::findOrFail($id);
         $vaga->update($request->all());
